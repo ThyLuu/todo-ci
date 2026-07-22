@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Todo CI Demo</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="app-container">
+
+        <section class="todo-card">
+
+            <header class="header">
+                <div>
+                    <p class="eyebrow">CI/CD PROJECT</p>
+                    <h1>Todo List</h1>
+                    <p class="subtitle">
+                        A small project powered by Node.js and GitHub Actions.
+                    </p>
+                </div>
+
+                <div class="status">
+                    <span class="status-dot"></span>
+                    API Online
+                </div>
+            </header>
+
+            <form id="todo-form" class="todo-form">
+
+                <input id="todo-input" type="text" placeholder="What do you want to accomplish?" autocomplete="off">
+
+                <button type="submit">
+                    Add Todo
+                </button>
+
+            </form>
+
+            <div class="stats">
+
+                <div class="stat">
+                    <span id="total-count">0</span>
+                    <small>Total</small>
+                </div>
+
+                <div class="stat">
+                    <span id="completed-count">0</span>
+                    <small>Completed</small>
+                </div>
+
+                <div class="stat">
+                    <span id="pending-count">0</span>
+                    <small>Pending</small>
+                </div>
+
+            </div>
+
+            <section id="todo-list" class="todo-list">
+
+                <div class="empty-state">
+                    <div class="empty-icon">✓</div>
+
+                    <h2>No todos yet</h2>
+
+                    <p>
+                        Add your first task to get started.
+                    </p>
+                </div>
+
+            </section>
+
+        </section>
+
+    </main>
+
+    <script src="app.js"></script>
+
+</body>
+
+</html>
