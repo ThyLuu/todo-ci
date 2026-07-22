@@ -4,27 +4,19 @@ module.exports = [
     {
         ignores: [
             "node_modules/",
-            "coverage/"
+            "coverage/",
+            "eslint.config.js"
         ]
     },
 
     js.configs.recommended,
 
-    // ESLint configuration file itself
+    // Backend - Node.js
     {
-        files: ["eslint.config.js"],
-
-        languageOptions: {
-            globals: {
-                require: "readonly",
-                module: "readonly"
-            }
-        }
-    },
-
-    // Application source code
-    {
-        files: ["src/**/*.js"],
+        files: [
+            "src/**/*.js",
+            "tests/**/*.js"
+        ],
 
         languageOptions: {
             ecmaVersion: "latest",
@@ -32,23 +24,19 @@ module.exports = [
 
             globals: {
                 process: "readonly",
-                console: "readonly"
+                console: "readonly",
+                __dirname: "readonly",
+                require: "readonly",
+                module: "readonly"
             }
-        },
-
-        rules: {
-            "no-unused-vars": "warn"
         }
     },
 
-    // Jest test files
+    // Jest
     {
         files: ["tests/**/*.js"],
 
         languageOptions: {
-            ecmaVersion: "latest",
-            sourceType: "commonjs",
-
             globals: {
                 describe: "readonly",
                 test: "readonly",
@@ -56,10 +44,22 @@ module.exports = [
                 beforeEach: "readonly",
                 afterEach: "readonly"
             }
-        },
+        }
+    },
 
-        rules: {
-            "no-unused-vars": "warn"
+    // Frontend - Browser
+    {
+        files: ["public/**/*.js"],
+
+        languageOptions: {
+            ecmaVersion: "latest",
+            sourceType: "script",
+
+            globals: {
+                document: "readonly",
+                fetch: "readonly",
+                console: "readonly"
+            }
         }
     }
 ];

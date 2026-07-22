@@ -71,12 +71,12 @@ function renderTodos(todos) {
                 ${
                     !todo.completed
                         ? `
-                            <button
-                                class="complete-button"
-                                onclick="completeTodo(${todo.id})"
+                            <input
+                                class="todo-checkbox"
+                                type="checkbox"
+                                data-id="${todo.id}"
+                                ${todo.completed ? "checked" : ""}
                             >
-                                Complete
-                            </button>
                         `
                         : ""
                 }
@@ -85,6 +85,18 @@ function renderTodos(todos) {
         `)
         .join("");
 }
+
+todoList.addEventListener("click", event => {
+    const button = event.target.closest(".complete-button");
+
+    if (!button) {
+        return;
+    }
+
+    const todoId = button.dataset.id;
+
+    completeTodo(todoId);
+});
 
 todoForm.addEventListener("submit", async event => {
     event.preventDefault();
