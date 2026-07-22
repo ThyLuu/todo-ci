@@ -5,6 +5,12 @@ const {
 } = require("../src/todoService");
 
 describe("Todo Service", () => {
+    test("should return all todos", () => {
+        const todos = getTodos();
+
+        expect(Array.isArray(todos)).toBe(true);
+    });
+
     test("should add a new todo", () => {
         const todo = addTodo("Learn GitHub Actions");
 
